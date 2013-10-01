@@ -16,6 +16,7 @@ In the case of an instruction, the first two digits are the operation code (what
 Math is done with the use of the accumulator, the load command must be used to load a value into the accumulator, then an operation must be called, the result is then left in the accumulator.
 
 The comands and their operation code are as writen bellow:
+
 10 Read - read a word from the terminal t=into a specific location in memory
 
 11 write - write a word from a specific location in memorry to the terminal
