@@ -28,8 +28,8 @@ void getInput(int memory[SIZE_OF_MEMORY]);
 void initMemory(int memory[SIZE_OF_MEMORY]);
 
 //operation functions
-void read(int memory[SIZE_OF_MEMORY], int operand);
-void write(int memory[SIZE_OF_MEMORY], int operand);
+void read(int memory[SIZE_OF_MEMORY], int operand, int *instruction_counter);
+void write(int memory[SIZE_OF_MEMORY], int operand, int *instruction_counter);
 void load(int memory[SIZE_OF_MEMORY], int operand, int *accumulator);
 void store(int memory[SIZE_OF_MEMORY], int operand, int accumulator);
 void add(int memory[SIZE_OF_MEMORY], int operand, int *accumulator);

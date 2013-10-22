@@ -24,15 +24,16 @@ void read(int memory[SIZE_OF_MEMORY], int operand, int *instruction_counter){
 
 /**Write
 writes a word from a specific location in memory to the terminal
-intput: the operand and the memory array
+intput: the operand and the memory array pointer to the instruction counter
 output: void
 preconditions: this operation has been called
-postconditions: a value from memory will be uploaded to the terminal
+postconditions: a value from memory will be uploaded to the terminal and the instruction counter will be increased by one
 created: 21 Oct 2013
 last updated: 21 Oct 2013**/
-void write(int memory[SIZE_OF_MEMORY], int operand){
+void write(int memory[SIZE_OF_MEMORY], int operand, int *instruction_counter){
 
     printf("%d\n", memory[operand]);
+    *instruction_counter++;//increases the instrcution counter to the next spot in memory
 
 }
 
@@ -171,7 +172,7 @@ preconditions: this operation has been called
 postconditions: the instruction counter will be branched to another location in memory if the accumulator was positive, else it will update the instruction_coounter onto the next word
 created: 22 Oct 2013
 last update: 22 Oct 2013**/
-void branchNeg(int operand, int accumulator, int *instruction_counter){
+void branchPos(int operand, int accumulator, int *instruction_counter){
 
     if(accumulator > 0){
         *instruction_counter = operand;
