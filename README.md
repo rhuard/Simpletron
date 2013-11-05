@@ -15,6 +15,8 @@ SML is writen in signed integers called words. Each word is either data or an in
 In the case of an instruction, the first two digits are the operation code (what tells the simpletron which operation is geing used) and the last two are the location of memory for the data being operated on. 
 Math is done with the use of the accumulator, the load command must be used to load a value into the accumulator, then an operation must be called, the result is then left in the accumulator.
 
+when a program is written, only the commands are actually written down, space for the values are saved and then must be entered in during program run time.
+
 The comands and their operation code are as writen bellow:
 
 10 Read - read a word from the terminal t=into a specific location in memory
