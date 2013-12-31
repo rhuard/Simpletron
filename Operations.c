@@ -16,7 +16,7 @@ void read(int memory[SIZE_OF_MEMORY], int operand, int *instruction_counter){
 
     printf("? ");
     scanf(" %d", &word);
-    *instruction_counter++;//increases the instrcution counter to the next spot in memory
+    *instruction_counter += 1;//increases the instrcution counter to the next spot in memory
 
 
     memory[operand] = word;
@@ -32,8 +32,8 @@ created: 21 Oct 2013
 last updated: 21 Oct 2013**/
 void write(int memory[SIZE_OF_MEMORY], int operand, int *instruction_counter){
 
-    printf("%d\n", memory[operand]);
-    *instruction_counter++;//increases the instrcution counter to the next spot in memory
+    printf(":%d\n", memory[operand]);
+    *instruction_counter += 1;//increases the instrcution counter to the next spot in memory
 
 }
 
@@ -45,9 +45,10 @@ void write(int memory[SIZE_OF_MEMORY], int operand, int *instruction_counter){
  postconditions: the acmulator will have the new value stored
  created: 21 Oct 2013
 last updated: 21 Oct 2013**/
-void load(int memory[SIZE_OF_MEMORY], int operand, int *accumulator){
+void load(int memory[SIZE_OF_MEMORY], int operand, int *accumulator, int *instruction_counter){
 
      *accumulator = memory[operand];
+     *instruction_counter += 1;
 }
 
 /**Store
@@ -58,9 +59,10 @@ preconditions: this operation has been called
 postconditions: the value from the accumulator will be stored in the memory array
 created: 21 Oct 2013
 last updated: 21 Oct 2013**/
-void store(int memory[SIZE_OF_MEMORY], int operand, int accumulator){
+void store(int memory[SIZE_OF_MEMORY], int operand, int accumulator, int *insturction_counter){
 
     memory[operand] = accumulator;
+    *insturction_counter += 1;
 }
 
 /**Add
@@ -71,9 +73,10 @@ preconditions: this operation has been called
 postconditions: the accumulator will hold the sum of the old accumulator and the operand
 created: 21 Oct 2013
 last update: 21 Oct 2013**/
-void add(int memory[SIZE_OF_MEMORY], int operand, int *accumulator){
+void add(int memory[SIZE_OF_MEMORY], int operand, int *accumulator, int *instruction_counter){
 
     *accumulator += memory[operand];
+    *instruction_counter += 1;
 }
 
 /**Subtract
@@ -84,9 +87,10 @@ preconditions: this operation has been called
 postconditions: the accumulator will hold the difference of the old accumulator and the operand
 created: 21 Oct 2013
 last update: 21 Oct 2013**/
-void subtract(int memory[SIZE_OF_MEMORY], int operand, int *accumulator){
+void subtract(int memory[SIZE_OF_MEMORY], int operand, int *accumulator, int *instruction_counter){
 
     *accumulator -= memory[operand];
+    *instruction_counter += 1;
 }
 
 /**Multiply
@@ -97,9 +101,10 @@ preconditions: this operation has been called
 postconditions: the accumulator will hold the product of the old accumulator and the operand
 created: 21 Oct 2013
 last update: 21 Oct 2013**/
-void multiply(int memory[SIZE_OF_MEMORY], int operand, int *accumulator){
+void multiply(int memory[SIZE_OF_MEMORY], int operand, int *accumulator, int *instruction_counter){
 
     *accumulator *= memory[operand];
+    *instruction_counter += 1;
 }
 
 /**Divide
@@ -110,9 +115,10 @@ preconditions: this operation has been called
 postconditions: the accumulator will hold the quotant of the old accumulator and the operand
 created: 21 Oct 2013
 last update: 21 Oct 2013**/
-void divide(int memory[SIZE_OF_MEMORY], int operand, int *accumulator){
+void divide(int memory[SIZE_OF_MEMORY], int operand, int *accumulator, int *instruction_counter){
 
     *accumulator /= memory[operand];
+    *instruction_counter += 1;
 }
 
 /**Branch
@@ -142,7 +148,7 @@ void branchNeg(int operand, int accumulator, int *instruction_counter){
         *instruction_counter = operand;
     }else{
 
-        *instruction_counter++;
+        *instruction_counter += 1;
     }
 }
 
@@ -160,7 +166,7 @@ void branchZerro(int operand, int accumulator, int *instruction_counter){
         *instruction_counter = operand;
     }else{
 
-        *instruction_counter++;
+        *instruction_counter += 1;
     }
 }
 
@@ -178,7 +184,7 @@ void branchPos(int operand, int accumulator, int *instruction_counter){
         *instruction_counter = operand;
     }else{
 
-        *instruction_counter++;
+        *instruction_counter += 1;
     }
 }
 
@@ -192,7 +198,21 @@ created: 22 Oct 2013
 last updated: 22 Oct 2013**/
 void Halt(int *instruction_counter){
 
-    printf("***the simpletron program has finished execution succesfully***\n");
+    printf("\n***the simpletron program has finished execution succesfully***\n");
     *instruction_counter = DONE;
 
+}
+
+
+/**number
+if the word is a number, then the instruction should be skipped
+input: a pointer to the instruction counter
+output: void
+precondition: this operation has been called
+postcondtions: the next instruction will be able to execute
+created: 30 dec 2013
+last updated: 30 dec 2013**/
+void number(int *instruction_counter){
+
+    *instruction_counter += 1;
 }

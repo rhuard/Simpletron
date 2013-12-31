@@ -56,7 +56,7 @@ initalizes the memory array
 input: memory array
 output: void
 predcondition: program starts
-postcondition: whole memory array will be initalized to -9999
+postcondition: whole memory array will be initalized to 0
 created: 28 Aug 2013
 last update: 28 Aug 2013**/
 void initMemory(int memory[SIZE_OF_MEMORY]){
@@ -64,7 +64,7 @@ void initMemory(int memory[SIZE_OF_MEMORY]){
     int i;
     for(i = 0; i<SIZE_OF_MEMORY; i++){
 
-        memory[i] = -9999;
+        memory[i] = 0;
     }
 }
 
@@ -99,24 +99,45 @@ preconditions: the user wants to read in from a file
 postconditions: a SML program will be read from the requested file to the memory array
 created: 31 dec 2013
 last updated: 31 dec 2013**/
-void readFile(int memory[SIZE_OF_MEMORY]){
+int readFile(int memory[SIZE_OF_MEMORY]){
 
-    FILE *infile;
-    char *filename;
+    FILE *infile = NULL;
+    char file_name[SIZE_OF_FILE_NAME];
     int i = 0;
 
     printf("Please enter file name: ");
-    scanf("%s", filename);
+    scanf("%s", file_name);
 
-    infile = fopen(filename, "r");
+    infile = fopen(file_name, "r");//TODO: this is causing a segmentation error, fix that
 
-    //TODO: put in check to make sure file is open
+    if(infile != NULL){
 
-    while(!feof(infile)){
+        while(!feof(infile)){
 
-        memory[i] = fscanf(infile, "%d");
-        i++;
+            memory[i] = fscanf(infile, "%d");
+            i++;
+        }
+
+        fclose(infile);
+        return 1;
+
+    }else{
+
+        printf("error [2] - file could not be opened\n");
+        return 0;
     }
 }
 
-//TODO: driver for running the simpletron program
+/**get Operator and Operand
+seperates the word into an operator and an operand
+input: the word to seperate and output perameters for the operator and the operand
+output: void
+preconditions: a word needs to be read
+postconditions: a word will be seperated
+created: 31 dec 2013
+last update: 31 dec 2013**/
+void getOpeAndOper(int word, int *oper, int *operand){
+
+    *oper = word / 100;
+    *operand = word % 100;
+}
