@@ -3,16 +3,51 @@
 #include "simpletron.h"
 
 /**greet
+prints welcome screen, and the user chooses to run the interactive or read in from a file
+input: void
+output: an int for if the user would like to read from a file or if the user would like to input the SML themselves
+preconditions: program starts
+created: 30 Dec 2013
+last updated: 30 Dec 2013**/
+int greet(void){
+
+    int choice;
+    int con = -1;
+
+    while(con != 1){
+        printf("***Welcome to the Simpletron Computer Simulator***\n");
+        printf("\nwould you like to:\n1-read from a file\n2-enter the interactive prompt\n3-exit\n:");
+
+        scanf("%d", &choice);
+
+        if(choice != 1 && choice != 2 && choice!= 3){
+
+            printf("That was an invalid option please try again\nplease press anykey to continue\n");
+            getchar();
+
+        }else{
+
+            con = 1;
+        }
+    }
+    return choice;
+}
+
+/**interactive
 gives the greeting to the user
 input: void
 output: void
-preconditions: program starts
+preconditions: user choses interactive console
 postconditions: user will start using simpletron
 created: 27 Aug 2013
-last update: 27 Aug 2013**/
-void greet(void){
+last update: 30 dec 2013
 
-printf("***Welcome to Simpletron***\n***please enter your program instructions***\n***one word at a time, each time***\n***you will be prompted with the memory location you are***\n***using for that instruction***\n\n***when you are done, please type the sentinal -9999***\n\n\n");
+    update record:
+        30dec 2013 - changed name to interactive, as the program is being adapted to read in from a file as well as the interactive prompt. Also added the  getInput function**/
+void interactive(int memory[SIZE_OF_MEMORY]){
+
+printf("******please enter your program instructions***\n***one word at a time, each time***\n***you will be prompted with the memory location you are***\n***using for that instruction***\n\n***when you are done, please type the sentinal -9999***\n\n\n");
+getInput(memory);
 
 }
 
@@ -56,6 +91,32 @@ void getInput(int memory[SIZE_OF_MEMORY]){
     }
 }
 
-//TODO: functions to figure out if the word is an instruction and if so split it up into operand and operation code
+/**readFile
+reads a user input file for the SML code
+input: the memory array to populate
+output: void
+preconditions: the user wants to read in from a file
+postconditions: a SML program will be read from the requested file to the memory array
+created: 31 dec 2013
+last updated: 31 dec 2013**/
+void readFile(int memory[SIZE_OF_MEMORY]){
+
+    FILE *infile;
+    char *filename;
+    int i = 0;
+
+    printf("Please enter file name: ");
+    scanf("%s", filename);
+
+    infile = fopen(filename, "r");
+
+    //TODO: put in check to make sure file is open
+
+    while(!feof(infile)){
+
+        memory[i] = fscanf(infile, "%d");
+        i++;
+    }
+}
 
 //TODO: driver for running the simpletron program

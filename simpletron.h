@@ -21,11 +21,11 @@
 #define HALT 44
 #define DONE -1 //this defines when the program is done. The instruction counter will be set to this value
 
-void greet(void);
-
+int greet(void);
+void interactive(int memory[SIZE_OF_MEMORY]);
 void getInput(int memory[SIZE_OF_MEMORY]);
-
 void initMemory(int memory[SIZE_OF_MEMORY]);
+void readFile(int memory[SIZE_OF_MEMORY]);
 
 //operation functions
 void read(int memory[SIZE_OF_MEMORY], int operand, int *instruction_counter);
