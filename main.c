@@ -1,5 +1,5 @@
 //writen by Ryan Huard
-#include "simpletron.h"
+#include "Operations.h"
 
 int main(void)
 {
