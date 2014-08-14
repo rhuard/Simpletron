@@ -41,4 +41,7 @@ The comands and their operation code are as writen bellow:
 
 43 halt - called when the program is done with its task
 
-more operations may be added in the future
+features:
+1. Interactive mode, type in code and execute
+2. all parts of the above SML language have been implemented
+3. reading sml code from a sml file - still a little buggy. 
