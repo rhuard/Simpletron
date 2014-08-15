@@ -17,7 +17,7 @@ Math is done with the use of the accumulator, the load command must be used to l
 
 The comands and their operation code are as writen bellow:
 
-10 Read - read a word from the terminal t=into a specific location in memory
+10 Read - read a word from the terminal into a specific location in memory
 
 11 write - write a word from a specific location in memorry to the terminal
 
