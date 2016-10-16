@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 #define SIZE_OF_MEMORY 100
-#define SIZE_OF_FILE_NAME 10
+#define SIZE_OF_FILE_NAME 30
 //operation codes
 #define NUMBER 0
 #define READ 10

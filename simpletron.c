@@ -105,16 +105,15 @@ int readFile(int memory[SIZE_OF_MEMORY]){
     char file_name[SIZE_OF_FILE_NAME];
     int i = 0;
 
-    printf("Please enter file name: ");
+    printf("filename:\n");
     scanf("%s", file_name);
 
-    infile = fopen(file_name, "r");//TODO: this is causing a segmentation error, fix that
-
+    infile = fopen(file_name, "r");
     if(infile != NULL){
 
         while(!feof(infile)){
 
-            memory[i] = fscanf(infile, "%d");
+            fscanf(infile, "%d", &memory[i]);
             i++;
         }
 
