@@ -1,0 +1,7 @@
+read 99
+read 98
+load 99
+sub 98
+store 99
+write 99
+end
