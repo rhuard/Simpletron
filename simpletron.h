@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define SIZE_OF_MEMORY 100
 #define SIZE_OF_FILE_NAME 30

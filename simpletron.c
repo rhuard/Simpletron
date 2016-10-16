@@ -102,12 +102,18 @@ int readFile(int memory[SIZE_OF_MEMORY]){
 
     FILE *infile = NULL;
     char file_name[SIZE_OF_FILE_NAME];
+    char fullname[SIZE_OF_FILE_NAME+10]; //10 is from 'simplebin/' for docker container
     int i = 0;
 
     printf("filename:\n");
     scanf("%s", file_name);
 
-    infile = fopen(file_name, "r");
+    strcpy(fullname, "simplebin/");
+    strcat(fullname, file_name);
+
+    printf("%s\n", fullname);
+
+    infile = fopen(fullname, "r");
     if(infile != NULL){
 
         while(!feof(infile)){
