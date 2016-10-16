@@ -38,9 +38,15 @@ int mainloop(){
         //interactive prompt
         interactive(memory);
 
-
-
     }else if(choice == 3){
+        //assembler
+        Assemble();
+        return 1;
+    }else if(choice == 4){
+        //assembler
+        writeAssemble();
+        return 1;
+    }else if(choice == -1){
         return 0;
 
     }else{
