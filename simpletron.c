@@ -15,8 +15,7 @@ int greet(void){
     int con = -1;
 
     while(con != 1){
-        printf("***Welcome to the Simpletron Computer Simulator***\n");
-        printf("\nwould you like to:\n1-read from a file\n2-enter the interactive prompt\n3-exit\n:");
+        printf("would you like to:\n1-read from a file\n2-enter the interactive prompt\n3-exit\n:");
 
         scanf("%d", &choice);
 
@@ -46,7 +45,9 @@ last update: 30 dec 2013
         30dec 2013 - changed name to interactive, as the program is being adapted to read in from a file as well as the interactive prompt. Also added the  getInput function**/
 void interactive(int memory[SIZE_OF_MEMORY]){
 
-printf("******please enter your program instructions***\n***one word at a time, each time***\n***you will be prompted with the memory location you are***\n***using for that instruction***\n\n***when you are done, please type the sentinal -9999***\n\n\n");
+printf("******please enter your program instructions******\n");
+printf("when you are done, please type the sentinal -9999 to immediately execute\n");
+printf("or -9998 to save into file\n");
 getInput(memory);
 
 }
@@ -65,6 +66,38 @@ void initMemory(int memory[SIZE_OF_MEMORY]){
     for(i = 0; i<SIZE_OF_MEMORY; i++){
 
         memory[i] = 0;
+    }
+}
+
+int saveFile(int memory[SIZE_OF_MEMORY]){
+
+    FILE *outfile = NULL;
+    char file_name[SIZE_OF_FILE_NAME];
+    char fullname[SIZE_OF_FILE_NAME+10]; //10 is from 'simplebin/' for docker container
+    int i = 0;
+
+    printf("filename:\n");
+    scanf("%s", file_name);
+
+    strcpy(fullname, "simplebin/");
+    strcat(fullname, file_name);
+
+    outfile = fopen(fullname, "w");
+
+    if(outfile != NULL){
+
+        while(memory[i] != -9998){
+
+            fprintf(outfile,"%d\n", memory[i]);
+            i++;
+        }
+
+        return i;
+
+    }else{
+
+        printf("error: file could not be opened\n");
+        return -1;
     }
 }
 
@@ -88,6 +121,12 @@ void getInput(int memory[SIZE_OF_MEMORY]){
 
             i = SIZE_OF_MEMORY;//end loop
         }
+
+        else if(memory[i] == -9998){
+
+            saveFile(memory);
+            i = SIZE_OF_MEMORY;
+        }
     }
 }
 
@@ -103,12 +142,16 @@ int readFile(int memory[SIZE_OF_MEMORY]){
 
     FILE *infile = NULL;
     char file_name[SIZE_OF_FILE_NAME];
+    char fullname[SIZE_OF_FILE_NAME+10]; //10 is from 'simplebin/' for docker container
     int i = 0;
 
     printf("filename:\n");
     scanf("%s", file_name);
 
-    infile = fopen(file_name, "r");
+    strcpy(fullname, "simplebin/");
+    strcat(fullname, file_name);
+
+    infile = fopen(fullname, "r");
     if(infile != NULL){
 
         while(!feof(infile)){

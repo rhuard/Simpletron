@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define SIZE_OF_MEMORY 100
 #define SIZE_OF_FILE_NAME 30
@@ -20,7 +21,7 @@
 #define BRANCHNEG 41
 #define BRANCHZERO 42
 #define BRANCHPOS 43
-#define HALT 44
+#define HALT 50
 #define DONE -9999 //this defines when the program is done. The instruction counter will be set to this value
 
 int greet(void);
