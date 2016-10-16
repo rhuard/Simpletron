@@ -46,8 +46,8 @@ last update: 30 dec 2013
 void interactive(int memory[SIZE_OF_MEMORY]){
 
 printf("******please enter your program instructions******\n");
-printf("***when you are done, please type the sentinal -9999 to immediately execute***\n");
-printf("***or -9998 to save into file\n");
+printf("when you are done, please type the sentinal -9999 to immediately execute\n");
+printf("or -9998 to save into file\n");
 getInput(memory);
 
 }
