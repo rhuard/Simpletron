@@ -12,7 +12,7 @@ SML:
 
 SML is writen in signed integers called words. Each word is either data or an instruction. All instructions are assumed to be positive in value, data may either be positive or negetive. All instructions are four digit words.
 
-In the case of an instruction, the first two digits are the operation code (what tells the simpletron which operation is geing used) and the last two are the location of memory for the data being operated on. 
+In the case of an instruction, the first two digits are the operation code (what tells the simpletron which operation is geing used) and the last two are the location of memory for the data being operated on.
 Math is done with the use of the accumulator, the load command must be used to load a value into the accumulator, then an operation must be called, the result is then left in the accumulator.
 
 The comands and their operation code are as writen bellow:
@@ -44,4 +44,4 @@ The comands and their operation code are as writen bellow:
 features:
 1. Interactive mode, type in code and execute
 2. all parts of the above SML language have been implemented
-3. reading sml code from a sml file - still a little buggy. 
+3. reading sml code from a sml file - still a little buggy.
