@@ -31,7 +31,7 @@ The memory is a single array of 100 integers referenced as slots 0 - 99. This in
 
 ### Commands ###
 
-10 Read - read a word from the terminal into a specific location in memory
+10 read - read a word from the terminal into a specific location in memory
 
 11 write - write a word from a specific location in memorry to the terminal
 
@@ -57,6 +57,18 @@ The memory is a single array of 100 integers referenced as slots 0 - 99. This in
 
 50 halt - called when the program is done with its task
 
+### Assembly Language ###
+
+Support has been added so that a simple assembly language can be used instead of writing the byte code directly. The assembly language uses the same names as the bytecode commands. The assembly language is made in the structure `op num`. For example:
+```
+read 99
+write 99
+```
+is equivalent to 
+```
+1099
+1199
+```
 
 #### credits ####
 The idea for this program is from the seventh edition of C how to Program from Deitel.
