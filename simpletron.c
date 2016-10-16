@@ -45,7 +45,9 @@ last update: 30 dec 2013
         30dec 2013 - changed name to interactive, as the program is being adapted to read in from a file as well as the interactive prompt. Also added the  getInput function**/
 void interactive(int memory[SIZE_OF_MEMORY]){
 
-printf("******please enter your program instructions***\n***one word at a time, each time***\n***you will be prompted with the memory location you are***\n***using for that instruction***\n\n***when you are done, please type the sentinal -9999***\n\n\n");
+printf("******please enter your program instructions******\n");
+printf("***when you are done, please type the sentinal -9999 to immediately execute***\n");
+printf("***or -9998 to save into file");
 getInput(memory);
 
 }
