@@ -51,9 +51,11 @@ The memory is a single array of 100 integers referenced as slots 0 - 99. This in
 
 41 branchneg - branch to a specific location in memory if the accumulator is negative
 
-42 branchzero - Branch to a speficif location in memory if the accumulator is zero
+42 branchzero - Branch to a specific location in memory if the accumulator is zero
 
-43 halt - called when the program is done with its task
+43 branchpos - Branch to a specific location in memory if the accumulator is positive
+
+50 halt - called when the program is done with its task
 
 
 #### credits ####
