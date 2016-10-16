@@ -15,8 +15,7 @@ int greet(void){
     int con = -1;
 
     while(con != 1){
-        printf("***Welcome to the Simpletron Computer Simulator***\n");
-        printf("\nwould you like to:\n1-read from a file\n2-enter the interactive prompt\n3-exit\n:");
+        printf("would you like to:\n1-read from a file\n2-enter the interactive prompt\n3-exit\n:");
 
         scanf("%d", &choice);
 

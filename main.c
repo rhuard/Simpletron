@@ -3,6 +3,22 @@
 
 int main(void)
 {
+
+    int run = 1;
+
+    printf("***Welcome to the Simpletron Computer Simulator***\n");
+
+    while(1 == run){
+        run = mainloop();
+    }
+
+
+
+    return 0;
+}
+
+int mainloop(){
+
     int memory[SIZE_OF_MEMORY]; //the memory array
     int accumulator = 0; //the accumulator register
     int instruction_counter = 0; //location of memory the operation is being performed
@@ -10,9 +26,8 @@ int main(void)
     int operation_code = 0; //indicates operation being performed
     int operand = 0; //stores the location in memory on which the current instruction operates
     int good;
-    int choice;//this is the choice of the user from the greet function
+    int choice;//this is the choice of the user from the greet function    initMemory(memory);
 
-    initMemory(memory);
     choice = greet();
 
     if(choice == 1){
@@ -26,7 +41,7 @@ int main(void)
 
 
     }else if(choice == 3){
-        //do nothing
+        return 0;
 
     }else{
         //error
@@ -87,14 +102,12 @@ int main(void)
                 break;
             default:
                 printf("there was an error [1] - unknown instruction\n");
+                instruction_counter = DONE;
                 break;
-
 
             }
         }
     }
 
-
-
-    return 0;
+    return 1;
 }
