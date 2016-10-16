@@ -15,11 +15,16 @@ int greet(void){
     int con = -1;
 
     while(con != 1){
-        printf("would you like to:\n1-read from a file\n2-enter the interactive prompt\n3-exit\n:");
+        printf("would you like to:\n");
+        printf("1 - read from a file\n");
+        printf("2 - enter the interactive prompt\n");
+        printf("3 - run simpletron assembler\n");
+        printf("4 - write simpltron assembler code\n");
+        printf("-1 - exit\n:");
 
         scanf("%d", &choice);
 
-        if(choice != 1 && choice != 2 && choice!= 3){
+        if(choice != 1 && choice != 2 && choice!= 3 && choice != 4 && choice != -1){
 
             printf("That was an invalid option please try again\nplease press anykey to continue\n");
             getchar();
@@ -165,7 +170,7 @@ int readFile(int memory[SIZE_OF_MEMORY]){
 
     }else{
 
-        printf("error [2] - file could not be opened\n");
+        printf("error - file could not be opened\n");
         return 0;
     }
 }
